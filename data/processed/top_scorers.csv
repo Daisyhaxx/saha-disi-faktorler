@@ -1,0 +1,117 @@
+league,season,player_id,player,team_id,team,goals,source
+bra.1,2015,183567,Ricardo Oliveira,2674,Santos,20.0,espn_list
+bra.1,2016,74897,Diego Souza,7635,Sport,14.0,espn_list
+bra.1,2016,47265,Fred,7632,Atlético-MG,14.0,espn_list
+bra.1,2016,166488,William Pottker,3459,Ponte Preta,14.0,espn_list
+bra.1,2017,86473,Jô,874,Corinthians,18.0,espn_list
+bra.1,2017,198562,Henrique Dourado,3445,Fluminense,18.0,espn_list
+bra.1,2018,182522,Gabriel Barbosa,2674,Santos,18.0,espn_list
+bra.1,2019,182522,Gabriel Barbosa,819,Flamengo,25.0,match_details
+bra.1,2020,226991,Claudinho,6079,Red Bull Bragantino,18.0,espn_list
+bra.1,2020,190483,Luciano,2026,São Paulo,18.0,espn_list
+bra.1,2021,124068,Hulk,7632,Atlético-MG,19.0,espn_list
+bra.1,2022,165749,Germán Cano,3445,Fluminense,26.0,espn_list
+bra.1,2023,258271,Paulinho,7632,Atlético-MG,20.0,espn_list
+bra.1,2024,270260,Alerrando,3457,Vitória,15.0,espn_list
+bra.1,2024,266666,Yuri Alberto,874,Corinthians,15.0,espn_list
+bra.1,2025,280978,Kaio Jorge,2022,Cruzeiro,21.0,espn_list
+eng.1,2015,142200,Harry Kane,367,Tottenham Hotspur,25.0,espn_list
+eng.1,2016,142200,Harry Kane,367,Tottenham Hotspur,29.0,espn_list
+eng.1,2017,173896,Mohamed Salah,364,Liverpool,32.0,espn_list
+eng.1,2018,173896,Mohamed Salah,364,Liverpool,22.0,espn_list
+eng.1,2018,169797,Sadio Mané,364,Liverpool,22.0,espn_list
+eng.1,2018,122260,Pierre-Emerick Aubameyang,359,Arsenal,22.0,espn_list
+eng.1,2019,165648,Jamie Vardy,375,Leicester City,23.0,espn_list
+eng.1,2020,142200,Harry Kane,367,Tottenham Hotspur,23.0,match_details
+eng.1,2021,149945,Son Heung-Min,367,Tottenham Hotspur,23.0,espn_list
+eng.1,2021,173896,Mohamed Salah,364,Liverpool,23.0,espn_list
+eng.1,2022,253989,Erling Haaland,382,Manchester City,36.0,espn_list
+eng.1,2023,253989,Erling Haaland,382,Manchester City,27.0,espn_list
+eng.1,2024,173896,Mohamed Salah,364,Liverpool,29.0,espn_list
+eng.1,2025,253989,Erling Haaland,382,Manchester City,27.0,espn_list
+eng.2,2015,168830,Andre Gray,379,Burnley,25.0,espn_list
+eng.2,2016,134190,Chris Wood,357,Leeds United,27.0,espn_list
+eng.2,2017,148624,Matej Vydra,374,Derby County,21.0,espn_list
+eng.2,2018,127520,Teemu Pukki,381,Norwich City,29.0,match_details
+eng.2,2019,198825,Ollie Watkins,337,Brentford,26.0,espn_list
+eng.2,2019,183209,Aleksandar Mitrovic,370,Fulham,26.0,espn_list
+eng.2,2020,180639,Ivan Toney,337,Brentford,32.0,espn_list
+eng.2,2021,183209,Aleksandar Mitrovic,370,Fulham,43.0,espn_list
+eng.2,2022,181092,Chuba Akpom,369,Middlesbrough,28.0,espn_list
+eng.2,2023,223547,Sammie Szmodics,365,Blackburn Rovers,27.0,espn_list
+eng.2,2024,245562,Joël Piroe,357,Leeds United,19.0,espn_list
+eng.2,2025,322158,Zan Vipotnik,318,Swansea City,23.0,espn_list
+esp.1,2015,125088,Luis Suárez,83,Barcelona,40.0,espn_list
+esp.1,2016,45843,Lionel Messi,83,Barcelona,37.0,espn_list
+esp.1,2017,45843,Lionel Messi,83,Barcelona,34.0,espn_list
+esp.1,2018,45843,Lionel Messi,83,Barcelona,36.0,espn_list
+esp.1,2019,45843,Lionel Messi,83,Barcelona,25.0,espn_list
+esp.1,2020,45843,Lionel Messi,83,Barcelona,30.0,match_details
+esp.1,2021,46858,Karim Benzema,86,Real Madrid,27.0,espn_list
+esp.1,2022,125824,Robert Lewandowski,83,Barcelona,23.0,espn_list
+esp.1,2023,226211,Artem Dovbyk,9812,Girona,24.0,espn_list
+esp.1,2024,231388,Kylian Mbappé,86,Real Madrid,31.0,espn_list
+esp.1,2025,231388,Kylian Mbappé,86,Real Madrid,25.0,espn_list
+fra.1,2015,11001,Zlatan Ibrahimovic,160,Paris Saint-Germain,38.0,espn_list
+fra.1,2016,95469,Edinson Cavani,160,Paris Saint-Germain,35.0,espn_list
+fra.1,2017,95469,Edinson Cavani,160,Paris Saint-Germain,28.0,espn_list
+fra.1,2018,231388,Kylian Mbappé,160,Paris Saint-Germain,33.0,espn_list
+fra.1,2019,148530,Wissam Ben Yedder,174,AS Monaco,19.0,espn_list
+fra.1,2020,231388,Kylian Mbappé,160,Paris Saint-Germain,27.0,espn_list
+fra.1,2021,231388,Kylian Mbappé,160,Paris Saint-Germain,28.0,espn_list
+fra.1,2022,231388,Kylian Mbappé,160,Paris Saint-Germain,29.0,espn_list
+fra.1,2023,231388,Kylian Mbappé,160,Paris Saint-Germain,27.0,espn_list
+fra.1,2024,276221,Mason Greenwood,176,Marseille,21.0,espn_list
+fra.1,2024,229744,Ousmane Dembélé,160,Paris Saint-Germain,21.0,espn_list
+fra.1,2025,323850,Esteban Lepaul,169,Stade Rennais,21.0,espn_list
+ger.1,2015,125824,Robert Lewandowski,132,Bayern Munich,30.0,espn_list
+ger.1,2016,122260,Pierre-Emerick Aubameyang,124,Borussia Dortmund,31.0,espn_list
+ger.1,2017,125824,Robert Lewandowski,132,Bayern Munich,29.0,espn_list
+ger.1,2018,125824,Robert Lewandowski,132,Bayern Munich,22.0,match_details
+ger.1,2019,125824,Robert Lewandowski,132,Bayern Munich,34.0,espn_list
+ger.1,2020,125824,Robert Lewandowski,132,Bayern Munich,41.0,espn_list
+ger.1,2021,125824,Robert Lewandowski,132,Bayern Munich,35.0,espn_list
+ger.1,2022,170257,Niclas Füllkrug,137,Werder Bremen,16.0,espn_list
+ger.1,2022,222176,Christopher Nkunku,11420,RB Leipzig,16.0,espn_list
+ger.1,2023,142200,Harry Kane,132,Bayern Munich,36.0,espn_list
+ger.1,2024,142200,Harry Kane,132,Bayern Munich,26.0,espn_list
+ger.1,2025,142200,Harry Kane,132,Bayern Munich,36.0,espn_list
+ita.1,2015,67310,Gonzalo Higuaín,114,Napoli,36.0,espn_list
+ita.1,2016,102337,Edin Dzeko,104,AS Roma,29.0,espn_list
+ita.1,2017,167411,Mauro Icardi,110,Internazionale,29.0,espn_list
+ita.1,2017,130123,Ciro Immobile,112,Lazio,29.0,espn_list
+ita.1,2018,19667,Fabio Quagliarella,2734,Sampdoria,26.0,match_details
+ita.1,2019,130123,Ciro Immobile,112,Lazio,36.0,espn_list
+ita.1,2020,22774,Cristiano Ronaldo,111,Juventus,29.0,espn_list
+ita.1,2021,130123,Ciro Immobile,112,Lazio,27.0,espn_list
+ita.1,2022,228296,Victor Osimhen,114,Napoli,26.0,espn_list
+ita.1,2023,219713,Lautaro Martínez,110,Internazionale,24.0,espn_list
+ita.1,2024,268703,Mateo Retegui,105,Atalanta,25.0,espn_list
+ita.1,2025,219713,Lautaro Martínez,110,Internazionale,17.0,espn_list
+ned.1,2015,188402,Vincent Janssen,140,AZ Alkmaar,27.0,espn_list
+ned.1,2016,7525,Nicolai Jørgensen,142,Feyenoord Rotterdam,21.0,espn_list
+ned.1,2017,188055,Alireza Jahanbakhsh,140,AZ Alkmaar,21.0,espn_list
+ned.1,2018,127420,Luuk de Jong,148,PSV Eindhoven,27.0,espn_list
+ned.1,2018,122575,Dusan Tadic,139,Ajax Amsterdam,27.0,espn_list
+ned.1,2019,149577,Steven Berghuis,142,Feyenoord Rotterdam,15.0,match_details
+ned.1,2019,212250,Cyriel Dessers,3708,Heracles Almelo,15.0,match_details
+ned.1,2020,239525,Giorgos Giakoumakis,3731,VVV-Venlo,26.0,espn_list
+ned.1,2021,164171,Sébastien Haller,139,Ajax Amsterdam,21.0,espn_list
+ned.1,2022,262071,Anastasios Douvikas,153,FC Utrecht,20.0,espn_list
+ned.1,2023,220819,Vangelis Pavlidis,140,AZ Alkmaar,29.0,espn_list
+ned.1,2023,127420,Luuk de Jong,148,PSV Eindhoven,29.0,espn_list
+ned.1,2024,277106,Sem Steijn,152,FC Twente,27.0,espn_list
+ned.1,2025,274277,Ayase Ueda,142,Feyenoord Rotterdam,25.0,espn_list
+por.1,2015,155698,Jonas,1929,Benfica,32.0,espn_list
+por.1,2016,125249,Bas Dost,2250,Sporting CP,34.0,espn_list
+por.1,2017,155698,Jonas,1929,Benfica,34.0,espn_list
+por.1,2018,134503,Haris Seferovic,1929,Benfica,23.0,espn_list
+por.1,2019,144046,Pizzi,1929,Benfica,18.0,espn_list
+por.1,2019,252576,Carlos Vinícius,1929,Benfica,18.0,espn_list
+por.1,2019,219611,Mehdi Taremi,3822,Rio Ave,18.0,espn_list
+por.1,2020,262591,Pedro Gonçalves,2250,Sporting CP,23.0,match_details
+por.1,2021,271788,Darwin Núñez,1929,Benfica,26.0,espn_list
+por.1,2022,219611,Mehdi Taremi,437,FC Porto,23.0,espn_list
+por.1,2023,258906,Viktor Gyökeres,2250,Sporting CP,29.0,espn_list
+por.1,2024,258906,Viktor Gyökeres,2250,Sporting CP,39.0,espn_list
+por.1,2025,272722,Luis Suárez,2250,Sporting CP,28.0,espn_list
