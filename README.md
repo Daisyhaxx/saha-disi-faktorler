@@ -76,6 +76,7 @@ Sezon numarası başlangıç yılıdır: 2019 = 2019/20. Brasileirão'da sezon t
 | Maçlar ve seyirci | `/apis/site/v2/sports/soccer/{lig}/scoreboard?dates=YYYY&limit=1000` | lig × takvim yılı |
 
 - Her istekte `timeout` ve `raise_for_status` var. İstekler arasında 1 saniye bekleniyor. 429 ve 5xx hatalarında istek artan aralıklarla yeniden deneniyor.
+- Puan tablosu ve kadro yanıtlarında API'nin döndürdüğü sezon, istenen sezonla karşılaştırılıyor. Farklı bir sezon dönerse yanıt diske yazılmıyor, hata olarak raporlanıyor. Böylece yanlış sezonun verisi sonraki çalıştırmalarda analize karışmıyor. Alınamayan kadro ya da maç yılı varsa sezon özeti "tamam" yerine kaç tanesinin eksik olduğunu yazıyor.
 - Ham yanıtlar olduğu gibi, gzip'li olarak kaydediliyor. Script indirilmiş dosyaları atladığı için yeniden çalıştırmak API'ye tekrar istek atmıyor ve yarıda kesilirse kaldığı yerden devam ediyor.
 - Tam toplama 2.233 istekte, yaklaşık 53 dakikada, hatasız tamamlandı.
 
@@ -99,15 +100,15 @@ Rehberdeki kontroller (tekrar eden kayıtlar, veri tipleri, eksik değerler, tut
   - Kısmi seyirci için tek bir eşik seçilmedi. Her maçtaki seyirci, ev sahibinin normal dönemdeki ortanca seyircisine oranlandı ve bu doluluk oranı dilimlere ayrıldı.
 - **Soru 2:**
   - Her ölçü ve maç başına puan, takımın kendi lig-sezonu içinde standartlaştırıldı. Böylece ligler ve sezonlar arasındaki yapısal farklar ayıklandı.
-  - Korelasyon her lig için ayrı hesaplandı. İlişkinin şekline lig-sezon içindeki beşte birlik dilimlerle bakıldı.
+  - Korelasyon her lig için ayrı hesaplandı. İlişkinin şekline lig-sezon içindeki beşte birlik dilimlerle bakıldı. Aynı değere sahip takımlar (örneğin aynı sayıda oyuncu kullananlar) hep aynı dilime konuldu. Eşitlikleri satır sırasına göre bozmak kadro büyüklüğünde takımların %16'sını keyfi olarak başka dilime taşıyor ve uç dilimler arasındaki farkı yaklaşık %20 büyütüyordu.
 - **Soru 3:** Aynı takımın aynı ligdeki gol kralı çıkardığı ve çıkarmadığı sezonlarının ortalama sırası karşılaştırıldı.
-- Belirsizlik %95 güven aralıklarıyla gösterildi.
+- **Güven aralıkları:** Belirsizlik %95 güven aralıklarıyla gösterildi. Ortalamalarda normal yaklaşım (ortalama ± 1,96 × standart hata), korelasyonlarda Fisher dönüşümü kullanıldı. İkisi de gözlemlerin bağımsız olduğunu varsayıyor. Oysa aynı takımın aynı sezondaki maçları ve aynı takımın farklı sezonları birbirine benziyor. Bu yüzden ana sonuçlar, gözlemleri takım-sezon (Soru 1) ya da takım (Soru 2) kümeleri halinde yeniden örnekleyen küme bootstrap ile de kontrol edildi. Kümeli aralıklar 1,1–1,6 kat daha geniş çıktı. Soru 3'te her takım tek bir gözlem olduğu için bu sorun daha küçük.
 
 ## Bulgular
 
-### 1. Seyirci, ev sahibi avantajının yarısından fazlasını oluşturuyor
+### 1. Seyircisiz maçlarda ev sahibi avantajı yarıdan fazla azaldı
 
-Normal dönemde ev sahibi, deplasman takımından maç başına **0,46 puan** fazla topluyor. Seyircisiz oynanan 4.100 maçta bu fark **0,21'e** düştü, yani avantajın %55'i kayboldu. Ev sahibi galibiyet oranı da %45,1'den %40,5'e indi.
+Normal dönemde ev sahibi, deplasman takımından maç başına **0,46 puan** fazla topluyor. Seyircisiz oynanan 4.100 maçta bu fark **0,21'e** düştü, yani avantaj %55 azaldı. Ev sahibi galibiyet oranı da %45,1'den %40,5'e indi. Bu düşüşün tamamı seyirciye bağlanamaz: pandemi döneminde 5 oyuncu değişikliği kuralı, sıkışık fikstür ve farklı seyahat koşulları gibi başka şeyler de değişti. Takım-sezon kümeleriyle hesaplanan güven aralığına göre azalma yaklaşık %30 ile %81 arasında; yani düşüş net, ama büyüklüğü belirsiz.
 
 ![Seyircisiz maçlarda ev sahibi avantajı](figures/q1_seyircisiz_ev_avantaji.png)
 
@@ -115,7 +116,7 @@ Düşüş dokuz ligin hepsinde görülüyor. En büyük düşüş Ligue 1, Premi
 
 ![Doluluğa göre ev sahibi avantajı](figures/q1_doluluk_ev_avantaji.png)
 
-Normal seyircinin %25'inden az seyirciyle oynanan maçlarda bile avantaj normal seviyeye dönüyor. Yani seyircinin sayısından çok, stadyumda seyirci bulunup bulunmaması belirleyici görünüyor. Ancak kısıtlı seyirciyle oynanan maç sayısı az, bu yüzden güven aralıkları geniş.
+Normal seyircinin %25'inden az seyirciyle oynanan maçlarda avantaj (0,50) normal seviyeye yakın. Bu, seyircinin sayısından çok stadyumda bulunup bulunmamasının önemli olabileceğini düşündürüyor. Ancak bu veride görülen bir eğilim, kesin bir sonuç değil: kısıtlı seyirciyle oynanan maç sayısı az (300–640) ve güven aralıkları çok geniş. Örneğin %25'e kadar grubunun aralığı (0,21–0,79) seyircisiz maçların ortalamasına kadar uzanıyor. Bu konuda bir sonuca varmak için daha fazla inceleme gerekiyor.
 
 ![Sezonlara göre ev sahibi avantajı](figures/q1_sezonlara_gore_ev_avantaji.png)
 
@@ -133,7 +134,7 @@ Analize 1.730 takım-sezon girdi.
 
 ![Dilimlere göre maç başına puan](figures/q2_kadro_dilimler.png)
 
-En az oyuncu kullanan dilim maç başına 1,50 puan toplarken, en çok oyuncu kullanan dilim 1,24 puan topluyor. Yabancı oranında en düşük dilim 1,25, en yüksek dilim 1,46 puan topluyor. 38 maçlık bir sezonda bu farklar yaklaşık 8–10 puana denk geliyor. Yine de her bir ölçü, takımlar arasındaki puan farkının %4'ünden azını açıklıyor.
+En az oyuncu kullanan dilim maç başına 1,48 puan toplarken, en çok oyuncu kullanan dilim 1,26 puan topluyor. Yabancı oranında en düşük dilim 1,23, en yüksek dilim 1,46 puan topluyor. 38 maçlık bir sezonda bu farklar yaklaşık 8–9 puana denk geliyor. Aynı takımın sezonları tek küme sayıldığında da iki farkın güven aralığı sıfırdan uzak kalıyor. Yine de her bir ölçü, takımlar arasındaki puan farkının %4'ünden azını açıklıyor.
 
 ### 3. Gol kralı çıkaran takımlar o sezonlarda ortalama 2 sıra daha üstte bitiriyor
 
@@ -153,6 +154,7 @@ Gol kralı çıkaran 55 takımın ortalama sırası, gol kralı çıkardıkları
   - 8 lig-sezonun gol kralı, maç detaylarındaki gollerden hesaplandı. Bu yöntem birkaç golü kaçırabiliyor.
 - **Seyirci verisi:** ESPN eksik seyirci verisini de 0 olarak giriyor. Pandemi dönemindeki 0'ların gerçekten seyircisiz maçlar olduğu varsayıldı.
 - **Pandemide değişen başka koşullar:** Pandemi döneminde seyirci dışında başka şeyler de değişti: 5 oyuncu değişikliği kuralı, sıkışık fikstür, farklı seyahat koşulları. Soru 1'deki düşüşün tamamı seyirciye bağlanamaz.
+- **Bağımsızlık varsayımı:** Grafiklerdeki güven aralıkları gözlemleri bağımsız sayıyor, bu yüzden gerçekte olması gerekenden biraz dar. Küme bootstrap kontrolü ana sonuçları değiştirmedi, ama özellikle kısıtlı seyirci gruplarında belirsizliğin büyük olduğunu gösterdi.
 - **Hatalı doğum tarihleri:** Bariz hatalı doğum tarihleri ayıklandı. Makul bir yaşa denk gelen hatalı tarihler ise yakalanamıyor.
 - **Uyruk:** ESPN her oyuncu için tek bir uyruk veriyor; çift vatandaşlar tek uyrukla sayıldı. Yabancı oranı oyuncuların kural statüsünü (home-grown, AB dışı oyuncu kotası) değil, uyruk çeşitliliğini ölçüyor.
 - **Kadro büyüklüğü:** Bu ölçü "kullanılan oyuncu sayısı" anlamına geliyor. Lig maçı sayısına bazı liglerde play-off maçları da karışmış (1–2 maç).
